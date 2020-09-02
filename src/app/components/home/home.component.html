@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<div class="columns is-gapless animated fast fadeIn">
+
+  <div class="column is-2-widescreen is-3-desktop is-4-tablet content-profile">
+    <div class="profile-name has-background-info	is-fluid has-text-white	">
+      <span>RICHARD ROMERO</span>
+    </div>
+    <ul>
+      <li>
+        <i class="zmdi-hc-fw icon fa fa-map-signs"></i>
+        <span>Remitentes</span>
+      </li>
+      <li>
+        <i class="fas fa-stream"></i>
+        <span>Parámetros</span>
+      </li>
+      <li>
+        <i class="fas fa-clipboard-check"></i>
+        <span>Segmentos</span>
+      </li>
+      <li>
+        <i class="fas fa-user"></i>
+        <span>Contactos</span>
+      </li>
+      <li>
+        <i class="fas fa-plus"></i>
+        <span>Nuevo</span>
+      </li>
+      <li>
+        <i class="fas fa-list"></i>
+        <span>Listado</span>
+      </li>
+      <li>
+        <i class="zmdi-hc-fw icon fa fa-paper-plane"></i>
+        <span>Proceso de envío</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="column is-10-widescreen is-9-desktop is-8-tablet content-description has-background-light">
+    <div class="descr-title">
+      <div class="email">
+        <i class="far fa-envelope"></i>
+        LISTA DE EMAILS
+      </div>
+    </div>
+    <div class="has-background-white descr-blog">
+      <div class="content-user">
+        <ul>
+          <li>{{ usuarioValores | json }}</li>
+          <li>{{ usuarioValores.CDG_USR }}</li>
+          <li>{{ usuarioValores.DES_USR }}</li>
+          <li>{{ usuarioValores.NIV_USR }}</li>
+          <li>{{ usuarioValores.DIR_USR }}</li>
+          <li>{{ usuarioValores.PSW_USR }}</li>
+          <li>{{ usuarioValores.SWT_USR }}</li>
+          <li>{{ usuarioValores.PTO_VTA }}</li>
+          <li>{{ usuarioValores.USR_RED }}</li>
+          <li>{{ usuarioValores.USR_EMAIL }}</li>
+          <li>{{ usuarioValores.CDG_USU }}</li>
+          <li>{{ usuarioValores.FEC_USU }}</li>
+          <li>{{ usuarioValores.HOR_USU }}</li>
+          <li>{{ usuarioValores.ALM_DEFAULT }}</li>
+          <li>{{ usuarioValores.SWT_OPALM }}</li>
+          <li>{{ usuarioValores.SWT_AGUI }}</li>
+          <li>{{ usuarioValores.SWT_PERF }}</li>
+          <li>{{ usuarioValores.SWT_VCOST }}</li>
+         </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

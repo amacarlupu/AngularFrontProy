@@ -1,0 +1,27 @@
+img {
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+.login-img {
+  background-image: url('../../../assets/img/banner-cosmos.jpg');
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  background-size: cover;
+  margin:0;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select, .select select{
+  width: 100%;
+  }
+
+
