@@ -5,12 +5,12 @@ img {
 }
 
 .login-img {
-  background-image: url('../../../assets/img/banner-cosmos.jpg');
+  background-image: url('../../../assets/img/bannerBlink182_1.jpg');
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
   background-size: cover;
-  margin:0;
+  /* margin:0; */
   /* display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,8 +20,24 @@ img {
   justify-content: center;
 }
 
-.select, .select select{
-  width: 100%;
-  }
+.formas{
+  background: rgba(0,0,0,0.7);
+  padding: 2.5em 1.5em 2em 1.5em;
+  border-radius: 8px;
+}
 
+#group{
+  display: grid;
+  grid-template-columns:2em 1fr;
+  /* border:Solid green; */
+}
 
+.group-header{
+  background: rgb(215, 214, 207,1) !important;
+  border-radius: 5px 0 0 5px;
+}
+
+#personal{
+  border-radius: 0px 5px 5px 0 !important;
+
+}

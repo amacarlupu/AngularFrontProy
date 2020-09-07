@@ -4,6 +4,8 @@ import { FormService } from '../../services/form.service';
 import { Router } from '@angular/router';
 import { Usuario } from '../interfaces/usuario.interface';
 import { asyncScheduler } from 'rxjs';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -14,14 +16,14 @@ export class LoginComponent implements OnInit {
 
   forma: FormGroup;
 
-  usuario:any={};
+  usuario: any = {};
 
-  usuarioValores:any=[];
+  usuarioValores: any = [];
 
 
   constructor(private fb: FormBuilder,
-              private formService: FormService,
-              private router: Router ) {
+    private formService: FormService,
+    private router: Router) {
 
     this.crearFormulario();
 
@@ -52,8 +54,8 @@ export class LoginComponent implements OnInit {
 
     // nombre=['valor defecto', validacion sincrona, validacion asincrona]
     this.forma = this.fb.group({
-      username: ['', Validators.required ],
-      password: ['', Validators.required ],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
     });
 
   }
@@ -63,6 +65,7 @@ export class LoginComponent implements OnInit {
   // Submit
   async guardar() {
     console.log(this.forma);
+    console.log(this.forma.get('username').value);
 
     // Marcar en rojo campos vacios al hacer submit sin datos
     if (this.forma.invalid) {
@@ -79,17 +82,38 @@ export class LoginComponent implements OnInit {
     }
 
     let value = await this.formService.login(this.forma.value).toPromise()
-      .then( data=>{
-        this.usuario=data;
+      .then(data => {
+        this.usuario = data;
       });
 
-      console.log(this.usuario);
+    console.log(this.usuario);
 
-    if(this.usuario.error){
+    if (this.usuario.error) {
+
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Usuario o contaseña incorrecta'
+      });
+
+      // Reset del formulario
+      this.forma.reset({
+        nombre: '',
+        password:''
+      });
+
+      this.formService.autenticado=false;
+
       return;
-    }else{
+
+
+    } else {
+
+
       this.router.navigate(['../home']);
-      console.log('pasó xd');
+      console.log('pasó');
+
+      this.formService.autenticado=true;
 
       this.acceder(this.usuario);
     }
@@ -97,19 +121,19 @@ export class LoginComponent implements OnInit {
   }
 
 
-  async acceder(codigo){
-      let codigoUsuario=codigo[0].CDG_USR;
-      console.log(codigoUsuario);
+  acceder(codigo) {
+    let codigoUsuario = codigo[0].CDG_USR;
+    console.log(codigoUsuario);
 
-      this.formService.idUsuario=codigoUsuario;
-      console.log(this.formService.idUsuario);
+    this.formService.idUsuario = codigoUsuario;
+    console.log(this.formService.idUsuario);
 
-      // let perfil= await this.formService.getPerfil(codigoUsuario).toPromise()
-      //   .then( data=>{
-      //        this.usuarioValores=data[0];
-      //   });
+    // let perfil= await this.formService.getPerfil(codigoUsuario).toPromise()
+    //   .then( data=>{
+    //        this.usuarioValores=data[0];
+    //   });
 
-      //   console.log(this.usuarioValores);
+    //   console.log(this.usuarioValores);
 
   }
 

@@ -13,6 +13,7 @@ export class FormService {
 
   idUsuario: String;
   private url = 'https://api-login-lazzar.herokuapp.com/api/user/'
+  autenticado:boolean;
 
   constructor(private http: HttpClient) {
 
