@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { FormService } from '../services/form.service';
+import { AuthService } from '../core/services/AuthService.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
 
-  constructor( private formService:FormService, private router:Router){}
+  constructor( private authService:AuthService, private router:Router){}
   canActivate(): boolean {
 
-    if(this.formService.autenticado){
+    if(this.authService.autenticado){
       return true;
     }else{
       this.router.navigateByUrl('/login');

@@ -1,0 +1,35 @@
+
+.icon-nav img{
+  width: 100%;
+}
+
+.icon-nav{
+  width: 100%;
+
+}
+
+.navbar{
+  padding:1.2em;
+  background: linear-gradient(to right,rgba(75, 176, 165,1),rgba(113, 211, 165,1));
+}
+
+.title-lazar span{
+  font-size: 1.2em;
+}
+
+.nav-logo{
+  display: grid;
+  grid-template-columns: 4em 1fr;
+  align-items: center;
+  column-gap: 1em;
+}
+
+
+@media (min-width: 992px){
+  .nav-logo{
+    margin-right: 3em;
+  }
+  .nav-item{
+    margin: 0 1em;
+  }
+}

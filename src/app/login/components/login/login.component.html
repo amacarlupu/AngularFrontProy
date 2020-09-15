@@ -1,26 +1,20 @@
-<div class="container-fluid login-img">
+<div class="container-fluid login-bg">
+
+  <button class="col-xl-1 col-lg-2 col-md-3 col-sm-4 col-11
+  btn-volver btn btn-danger" [routerLink]="['/now/lazzarSolutions']" routerLinkActive="router-link-active">Regresar</button>
+<!--
+  <div class="title-login">
+    <h1>Ingreso al Sistema Lazzar Solutions</h1>
+  </div> -->
 
   <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()"
     class="formas col-xl-3 col-lg-4 col-md-6 col-sm-7 col-11">
 
+    <div class="title-login">
+      <h3>Ingreso al Sistema Lazzar Solutions</h3>
+    </div>
 
 
-    <!-- <label>Usuario</label> -->
-<!--
-      <div id="group" class="mb-2">
-        <div class="group-header bg-light">
-          <span class="group-header-text">
-            <i class="fas fa-envelope"></i>
-          </span>
-        </div>
-
-          <input type="text" id="personal" class="form-control" placeholder="Usuario" formControlName="username"
-          [class.is-valid]="campoValido('username')" [class.is-invalid]="campoNoValido('username')">
-          <div *ngIf="campoErrores('username')?.required" class="invalid-feedback">
-            Campo requerido
-          </div>
-
-      </div> -->
       <div class="input-group mb-1">
 
         <div class="input-group-prepend">
@@ -80,10 +74,6 @@
       </button>
     </div>
 
-    <!-- [routerLink]="['/home']" routerLinkActive="router-link-active" -->
-
-
-    <!-- </div> -->
   </form>
 
 </div>

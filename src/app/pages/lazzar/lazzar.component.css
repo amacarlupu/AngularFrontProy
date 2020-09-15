@@ -1,0 +1,62 @@
+.erp-bg {
+  background: rgba(248, 248, 248, 1);
+  height: 100vh;
+}
+
+.erp-bg-logo {
+  padding: 2em;
+}
+
+.title-erp-logo {
+  text-align: center;
+}
+
+
+.title-erp-logo h1 {
+  color: rgba(60, 60, 64, 1);
+  font-weight: bold;
+}
+
+.des-erp{
+  margin: 5% 0;
+
+}
+
+.des-erp-title {
+  font-weight: bolder;
+}
+
+.des-erp-title,
+.des-erp-resume{
+  margin-bottom: 1em;
+}
+
+.des-erp-btn{
+  width: 100%;
+}
+
+img{
+  width:100%;
+}
+
+@media (min-width: 992px) {
+  .des-erp-logo {
+    margin-top:5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+  }
+  .des-erp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .des-erp-title,
+  .des-erp-resume{
+    margin-bottom: 1em;
+  }
+
+
+
+
+}

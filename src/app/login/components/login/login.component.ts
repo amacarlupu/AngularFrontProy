@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { FormService } from '../../services/form.service';
 import { Router } from '@angular/router';
-import { Usuario } from '../interfaces/usuario.interface';
-import { asyncScheduler } from 'rxjs';
 import Swal from 'sweetalert2';
+import { AuthService } from 'src/app/core/services/AuthService.service';
+import { Usuario } from '../../../models/usuario.interface';
 
 
 @Component({
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder,
-    private formService: FormService,
+    private authService: AuthService,
     private router: Router) {
 
     this.crearFormulario();
@@ -81,7 +80,7 @@ export class LoginComponent implements OnInit {
 
     }
 
-    let value = await this.formService.login(this.forma.value).toPromise()
+    let value = await this.authService.login(this.forma.value).toPromise()
       .then(data => {
         this.usuario = data;
       });
@@ -102,7 +101,7 @@ export class LoginComponent implements OnInit {
         password:''
       });
 
-      this.formService.autenticado=false;
+      this.authService.autenticado=false;
 
       return;
 
@@ -113,7 +112,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['../home']);
       console.log('pasó');
 
-      this.formService.autenticado=true;
+      this.authService.autenticado=true;
 
       this.acceder(this.usuario);
     }
@@ -125,10 +124,10 @@ export class LoginComponent implements OnInit {
     let codigoUsuario = codigo[0].CDG_USR;
     console.log(codigoUsuario);
 
-    this.formService.idUsuario = codigoUsuario;
-    console.log(this.formService.idUsuario);
+    this.authService.idUsuario = codigoUsuario;
+    console.log(this.authService.idUsuario);
 
-    // let perfil= await this.formService.getPerfil(codigoUsuario).toPromise()
+    // let perfil= await this.authService.getPerfil(codigoUsuario).toPromise()
     //   .then( data=>{
     //        this.usuarioValores=data[0];
     //   });

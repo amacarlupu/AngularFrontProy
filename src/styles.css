@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-
-html { overflow-y: auto; }
+/*
+html { overflow-y: auto; } */
 
 body{
-  font-family: 'Alata', sans-serif;
+  font-family: 'Kufam', cursive;
+  font-family: 'Lato', sans-serif;
+
 }
 
 

@@ -1,0 +1,65 @@
+<div class="contenedor">
+
+  <!-- Cuadro general de login -->
+  <div class="login-container">
+
+    <!-- Seccion con la imagen -->
+    <div class="img-form">
+      <img src="../../../../assets/img/logo-now-azul.jpg" alt="">
+    </div>
+
+    <!-- Seccion con el formulario -->
+    <form autocomplete="off" [formGroup]="forma" (ngSubmit)="guardar()" class="form-card">
+
+      <legend class="form-legend">Ingreso al Sistema</legend>
+
+
+      <div class="form-element form-input">
+
+        <input class="form-element-field" placeholder="Ingrese su usario" type="text" formControlName="username"
+          [class.is-valid]="campoValido('username')" [class.is-invalid]="campoNoValido('username')" />
+        <div class="form-element-bar"></div>
+        <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Usuario</label>
+        <div *ngIf="campoErrores('username')?.required" class="invalid-feedback">
+          Campo requerido
+        </div>
+
+      </div>
+
+
+
+      <div class="form-element form-input">
+
+        <input class="form-element-field" placeholder="Ingrese su contraseña" type="password" formControlName="password"
+        [class.is-valid]="campoValido('password')" [class.is-invalid]="campoNoValido('password')"/>
+        <div class="form-element-bar"></div>
+        <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Contraseña</label>
+        <div *ngIf="campoErrores('password')?.required" class="invalid-feedback">
+          Campo requerido
+        </div>
+      </div>
+
+
+      <div class="form-element form-select">
+        <select class="form-element-field-select">
+          <option selected>Seleccionar empresa</option>
+          <option value="1">Lazzar Solutions</option>
+          <option value="2">Catercu</option>
+          <option value="3">Panamericana</option>
+        </select>
+        <div class="form-element-bar-select"></div>
+      </div>
+
+      <div class="group-botoms">
+        <button [routerLink]="['/now/lazzarSolutions']" routerLinkActive type="btn"
+          class="btn btn-danger">Regresar</button>
+        <button type="btn" class="btn btn-info">Ingresar</button>
+      </div>
+
+    </form>
+
+
+  </div>
+
+</div>
+

@@ -1,4 +1,5 @@
-/* div{
+.contenedor{
   box-sizing: border-box;
-} */
+  overflow: hidden;
+}
 

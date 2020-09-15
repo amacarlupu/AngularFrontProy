@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../components/interfaces/usuario.interface';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Usuario } from '../../models/usuario.interface';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class FormService {
+export class AuthService {
 
 
   idUsuario: String;

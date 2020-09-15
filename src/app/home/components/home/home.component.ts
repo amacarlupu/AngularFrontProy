@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormService } from '../../services/form.service';
+import { AuthService } from '../../../core/services/AuthService.service';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +9,17 @@ import { FormService } from '../../services/form.service';
 export class HomeComponent implements OnInit {
 
   usuarioValores: any={};
-  constructor(private formService: FormService) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
 
-    this.getPerfil(this.formService.idUsuario);
+    this.getPerfil(this.authService.idUsuario);
   }
 
 
     async getPerfil(id) {
 
-    let perfil = await this.formService.getPerfil(id).toPromise()
+    let perfil = await this.authService.getPerfil(id).toPromise()
       .then(data => {
         this.usuarioValores = data[0];
       });
