@@ -1,4 +1,7 @@
-.navbarStyle{
-  padding: 0.7em 0;
-  box-sizing: border-box;
+a{
+  font-size: 2em;
+}
+
+.btnSalir{
+  font-size: 1.2em;
 }

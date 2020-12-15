@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 
 // Rutas
 import { APP_ROUTING } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { AuthGuard } from './guards/auth.guard';
+import { TokenInterceptorService } from './core/services/token-interceptor.service';
+
 
 
 
@@ -26,7 +29,14 @@ import { CoreModule } from './core/core.module';
     SharedModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

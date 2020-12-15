@@ -16,17 +16,17 @@ const APP_ROUTES: Routes = [
   {
     path:'now',
     loadChildren:()=> import('./pages/pages.module').then(m=>m.PagesModule)
+  },
+  {
+    path: '**',
+    pathMatch: 'full',
+    redirectTo: 'login'
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login'
   }
-  // {
-  //   path: '**',
-  //   pathMatch: 'full',
-  //   redirectTo: 'login'
-  // },
-  // {
-  //   path: '',
-  //   pathMatch: 'full',
-  //   redirectTo: 'login'
-  // }
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

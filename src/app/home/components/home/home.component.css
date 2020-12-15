@@ -1,50 +1,19 @@
-.content-profile{
-    box-sizing: border-box;
-}
-
-.content-profile ul li{
-  padding: 1em;
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  cursor: pointer;
-}
-
-.content-profile ul li>i,
-.content-profile ul li>span{
-  margin: 0 0.5em;
-}
-
-.content-description{
+.contenedor-home{
   /* border:solid blue; */
-}
-
-.columns{
+  height: auto;
   display: flex;
-  flex-direction: row;
-
+  flex-direction: column;
+  justify-content: center;
 }
 
-.profile-name{
-  font-size: 1em;
-  font-weight: bold;
-  padding: 2em;
-      box-sizing: border-box;
 
+.row-home{
+  margin:0 15% !important;
 }
 
-.descr-title{
-  background:transparent;
-  padding: 2em;
-}
 
-.email{
-  font-size: 1.2em;
-  font-weight: bold;
-}
 
-.content-user{
-  color:black;
-  padding: 2em;
+.nameUser{
+  color: rgba(17, 121, 169,1);
+  font-weight: bolder;
 }

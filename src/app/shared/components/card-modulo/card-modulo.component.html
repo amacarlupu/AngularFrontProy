@@ -1,0 +1,35 @@
+<div class="card" *ngIf="modulo[0].DES_OPC!==''">
+
+  <div class="content-image" [ngSwitch]="modulo[0].CDG_OPC">
+    <img *ngSwitchCase="'ALM'" src="../../../../assets/img/almacen.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'CAR'" src="../../../../assets/img/carniceria.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'CLI'" src="../../../../assets/img/clientes.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'CLN'" src="../../../../assets/img/clinica.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'CNF'" src="../../../../assets/img/configuracion.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'CUE'" src="../../../../assets/img/cuero.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'INT'" src="../../../../assets/img/contabilidad.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'PLA'" src="../../../../assets/img/planilla.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'PRO'" src="../../../../assets/img/produccion.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'PRV'" src="../../../../assets/img/proveedor.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'SIG'" src="../../../../assets/img/info-gerencial.png" class="card-img-top img-fluid">
+    <img *ngSwitchCase="'TES'" src="../../../../assets/img/tesoreria.png" class="card-img-top img-fluid">
+	<img *ngSwitchCase="'ASI'" src="../../../../assets/img/planilla.png" class="card-img-top img-fluid">
+    <img *ngSwitchDefault src="../../../../assets/img/logo lazzar.jpg" class="card-img-top img-fluid">
+  </div>
+
+  <div class="card-body">
+    <h5 class="card-title text-center">{{ modulo[0].DES_OPC }}</h5>
+    <!-- <p class="card-text">{{ modulo[0].FRM_OPC }}</p> -->
+    <!-- <p class="card-text"><small class="text-muted">{{ personaje.afiliacion }}</small></p> -->
+
+    <!-- Usando programacion -->
+    <button (click)="verOpciones()" class="btn btn-outline-info btn-block">
+      Ver más...
+    </button>
+
+    <!-- Usando rutas -->
+    <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-info btn-block">
+      Ver más link...
+    </a> -->
+  </div>
+</div>

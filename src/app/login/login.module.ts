@@ -20,7 +20,7 @@ import { LoginLazzarComponent } from './components/login-lazzar/login-lazzar.com
     ReactiveFormsModule
   ],
   exports: [
-    LoginComponent,
+    // LoginComponent,
     LoginLazzarComponent
   ],
   providers: [],

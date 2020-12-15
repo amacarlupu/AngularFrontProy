@@ -5,11 +5,11 @@ import { LoginLazzarComponent } from './components/login-lazzar/login-lazzar.com
 
 
 const APP_ROUTES: Routes = [
-  { path: '',
-    component: LoginComponent
-  },
+  // { path: '',
+  //   component: LoginComponent
+  // },
   {
-    path:'abcdef',
+    path:'',
     component: LoginLazzarComponent
   }
 ];

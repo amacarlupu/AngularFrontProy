@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Usuario } from '../../models/usuario.interface';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -10,44 +11,55 @@ import { Usuario } from '../../models/usuario.interface';
 })
 export class AuthService {
 
+  private url = 'https://api-login-lazzar.herokuapp.com'
 
-  idUsuario: String;
-  private url = 'https://api-login-lazzar.herokuapp.com/api/user/'
-  autenticado:boolean;
-
-  constructor(private http: HttpClient) {
-
-  }
-
-
-  login(usuario: Usuario) {
-
-    return this.http.post(`${this.url}/login`, usuario);
-
-  };
-
-  getPerfil(id: String){
-    return this.http.get(`${this.url}profile/${id}`);
+  constructor(
+    private http: HttpClient,
+    private router:Router) {
 
   }
 
-  // getUsuario():any[]{
-  //   return this.usuarioValores;
+  login(user){
+    return this.http.post<Usuario>(`${this.url}/user/login`, user);
+  }
+
+  loggedIn(): boolean{
+    if(localStorage.getItem('token')){
+      return true;
+    }
+
+  }
+
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+
+  }
+
+  // getPerfil(id: String){
+  //   return this.http.get(`${this.url}/profile/${id}`);
   // }
 
-  // llenarUsuario(arreglo:any[]){
-  //   // Si es verdadero devuelve un numero mayor a 0, si es false -> -1
-  //   if(nombre.indexOf(termino)>=0){
+  getPerfil(){
+    return this.http.get(`${this.url}/user/profile`);
+  }
 
-  //     // Añadirle un nuevo campo index con el valor i del arreglo recorrido
-  //    // para eso tambien añadirlo en la interfaz Heroe
-  //     heroe.index=i;
-  //    heroesArr.push(heroe); // Añadir al arreglo con resultados
-  //  }
-
-  // }
-
-
-
+  getPermiso(){
+    return this.http.get(`${this.url}/user/permiso`)
+    .pipe(
+      map((resp: any[]) => {
+        return resp.map(detalle => {
+          return {
+            modulo: detalle.CDG_OPC,
+            opcion: detalle.NUM_ITEM
+          }
+        })
+      })
+    )
+  }
 }
 

@@ -1,6 +1,8 @@
-// Interface para el objeto heroe
+// Interface para el objeto usuario
 export interface Usuario{
-  username: string;
-  password: string;
+  id: string,
+  usuario: string,
+  nivel: string,
+  estado:number,
+  token:string
 }
-

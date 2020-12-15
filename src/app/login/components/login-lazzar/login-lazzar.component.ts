@@ -56,73 +56,24 @@ export class LoginLazzarComponent implements OnInit {
 
 
   // Submit
-  async guardar() {
+  login(){
     console.log(this.forma);
-    console.log(this.forma.get('username').value);
+    console.log(this.forma.value);
 
-    // Marcar en rojo campos vacios al hacer submit sin datos
-    if (this.forma.invalid) {
-
-      // Marcar como 'touch' los campos del formulario 'forma'
-      return Object.values(this.forma.controls).forEach(control => {
-
-        // Control es [nombre,correo], es un FormControl
-        //  recorrer sus campos y marcar todos sus valores
-        // como touch para mostrar el input de rojo
-        control.markAsTouched();
-      });
-
-    }
-
-    let value = await this.authService.login(this.forma.value).toPromise()
-      .then(data => {
-        this.usuario = data;
-      });
-
-    console.log(this.usuario);
-
-    if (this.usuario.error) {
-
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Usuario o contaseña incorrecta'
-      });
-
-      // Reset del formulario
-      this.forma.reset({
-        nombre: '',
-        password:''
-      });
-
-      this.authService.autenticado=false;
-
-      return;
-
-
-    } else {
-
-
-      this.router.navigate(['../home']);
-      console.log('pasó');
-
-      this.authService.autenticado=true;
-
-      this.acceder(this.usuario);
-    }
-
+    this.authService.login( this.forma.value )
+      .subscribe(
+        res => {
+          console.log(res);
+          localStorage.setItem('token', res.token );
+          this.authService.loggedIn();
+          // this.authService.idUsuario=res.id;
+          this.router.navigate(['/home']);
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
-
-
-  acceder(codigo) {
-    let codigoUsuario = codigo[0].CDG_USR;
-    console.log(codigoUsuario);
-
-    this.authService.idUsuario = codigoUsuario;
-    console.log(this.authService.idUsuario);
-
-  }
-
 
 
 }

@@ -1,0 +1,16 @@
+img{
+  width: 70%;
+  /* border:solid green; */
+}
+
+.content-image{
+  display: flex;
+  justify-content: center;
+  /* padding: 10%; */
+  box-sizing: border-box;
+  /* border:solid blue; */
+}
+
+.card:hover{
+ cursor: pointer;
+}
